@@ -2,10 +2,13 @@ export class Wizard {
   constructor(data) {
     console.log("Wizard has been created.");
     this.mana = {
-      total: data.mana.total || 1000,
-      perSecond: data.mana.perSecond || 0,
-      perClick: data.mana.perClick || 1,
-      multiplier: data.mana.multiplier || 1,
+      total: 1000,
+      perSecond: 0,
+      perClick: 1,
+      multiplier: 1,
+    }
+    if (data) {
+      this.mana = data.mana || this.mana
     }
   }
 }
@@ -14,14 +17,18 @@ export class ClickUpgrades {
   constructor(data) {
     console.log("hello from ClickUpgrades")
     this.tome = {
-      cost: data.tome.cost || 20,
-      number: data.tome.number || 0,
-      perClick: data.tome.perClick || 5
+      cost: 20,
+      number: 0,
+      perClick: 5
     }
     this.familiar = {
-      summoned: data.familiar.summoned || false,
-      cost: data.familiar.cost || 500,
-      multiplier: data.familiar.multiplier || 2
+      summoned: false,
+      cost: 500,
+      multiplier: 2
+    }
+    if (data) {
+      this.tome = data.tome || this.tome
+      this.familiar = data.familiar || this.familiar
     }
   }
 }
@@ -30,14 +37,18 @@ export class AutomaticUpgrades {
   constructor(data) {
     console.log("hello from AutomaticUpgrades");
     this.apprentice = {
-      cost: data.apprentice.cost || 1000,
-      number: data.apprentice.number || 0,
-      perSecond: data.apprentice.perSecond || 50
+      cost: 1000,
+      number: 0,
+      perSecond: 50
     }
     this.cabal = {
-      joined: data.cabal.joined || false,
-      cost: data.cabal.cost || 5000,
-      multiplier: data.cabal.multiplier || 3,
+      joined: false,
+      cost: 5000,
+      multiplier: 3,
+    }
+    if (data) {
+      this.apprentice = data.apprentice || this.apprentice
+      this.cabal = data.cabal || this.cabal
     }
   }
 }

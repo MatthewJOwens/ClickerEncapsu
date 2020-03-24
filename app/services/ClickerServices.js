@@ -2,9 +2,13 @@ import { Wizard, ClickUpgrades, AutomaticUpgrades } from "../models/ClickerModel
 
 //NOTE private data
 let _wizardConfigObj = {
-  mana.total = 1000
+  mana: {
+    total: 5000
+
+  }
 }
 let _wizard = new Wizard(_wizardConfigObj)
+
 let _clickUpgrades = new ClickUpgrades
 let _automaticUpgrades = new AutomaticUpgrades
 let _intervalStarted = false
@@ -15,7 +19,9 @@ export default class GameService {
   constructor() {
     console.log("hello from GameService")
   }
-
+  get WizardMana() {
+    return _wizard.mana.total.toString()
+  }
   increaseMana() {
     console.log("harvesting mana");
     if (_clickUpgrades.familiar.summoned == true) {
