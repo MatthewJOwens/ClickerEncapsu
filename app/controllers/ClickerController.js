@@ -21,6 +21,12 @@ export default class GameController {
     console.log("increaseMana");
 
   }
+
+  buyTome() {
+    _clickerServices.buyTome()
+    console.log("Buy tome");
+
+  }
 }
 
 

@@ -34,8 +34,20 @@ export default class GameService {
     document.getElementById("mana").textContent = _wizard.mana.total.toString();
   }
 
-
-
-
-
+  buyTome() {
+    if (_wizard.mana.total >= _clickUpgrades.tome.cost) {
+      _wizard.mana.total -= _clickUpgrades.tome.cost;
+      _clickUpgrades.tome.number++;
+      _clickUpgrades.tome.cost = Math.ceil(_clickUpgrades.tome.cost * 1.2)
+      document.getElementById("tome-cost").textContent = _clickUpgrades.tome.cost.toString()
+    }
+    document.getElementById("tomes-owned").textContent = _clickUpgrades.tome.number.toString()
+    if (_clickUpgrades.familiar.summoned == true) {
+      _manaGainOnClick = (_wizard.mana.perClick + (_clickUpgrades.tome.perClick * _clickUpgrades.tome.number)) * _clickUpgrades.familiar.multiplier;
+    } else {
+      _manaGainOnClick = _wizard.mana.perClick + (_clickUpgrades.tome.perClick * _clickUpgrades.tome.number)
+    }
+    document.getElementById("mana").textContent = _wizard.mana.total.toString();
+    document.getElementById("mana-per-click").textContent = _manaGainOnClick.toString()
+  }
 }
