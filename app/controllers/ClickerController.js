@@ -27,6 +27,21 @@ export default class GameController {
     console.log("Buy tome");
 
   }
+
+  summonFamiliar() {
+    _clickerServices.summonFamiliar()
+    console.log("Summon Familiar")
+  }
+
+  acceptApprentice() {
+    _clickerServices.acceptApprentice()
+    console.log("Accept Apprentice")
+  }
+
+  joinCabal() {
+    _clickerServices.joinCabal()
+    console.log("Joined Wizard Cabal")
+  }
 }
 
 

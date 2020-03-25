@@ -1,14 +1,11 @@
 export class Wizard {
-  constructor(data) {
+  constructor(data = 0) {
     console.log("Wizard has been created.");
     this.mana = {
-      total: 1000,
+      total: data,
       perSecond: 0,
       perClick: 1,
       multiplier: 1,
-    }
-    if (data) {
-      this.mana = data.mana || this.mana
     }
   }
 }
